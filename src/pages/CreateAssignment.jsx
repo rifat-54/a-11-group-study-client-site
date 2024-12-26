@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../hook/useAuth";
 import useAxiosSecure from "../hook/useAxiosSecure";
+import axios from "axios";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -15,14 +16,18 @@ const CreateAssignment = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    initialData.assignment_creator=user?.email
+    initialData.assignment_creator=user?.email;
+    initialData.deadline=startDate.toLocaleString()
     console.log(initialData);
 
     try {
       const {data}=await axiosSecure.post('/create-assignment',initialData)
+
+      // const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/create-assignment`,initialData)
+
       console.log(data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -85,7 +90,7 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Difficulty level</span>
           </label>
-          <select name="lavel" className="select select-bordered w-full ">
+          <select name="level" className="select select-bordered w-full ">
             <option disabled selected>
               Choose Lavel
             </option>

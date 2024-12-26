@@ -1,13 +1,14 @@
 import Lottie from 'lottie-react';
 import React, { useState } from 'react';
 import lottieData from '../assets/register.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hook/useAuth';
 import toast from 'react-hot-toast';
 
 const Register = () => {
     const [error,setError]=useState('')
     const{updateUser,googleLogin,registerUser}=useAuth()
+    const navigate=useNavigate()
     
 
     const handleRegister=async(e)=>{
@@ -30,6 +31,7 @@ const Register = () => {
       await registerUser(email,password)
       toast.success('successfully register user')
       updateUser(name,photo)
+      navigate('/')
     } catch (error) {
       toast.error(error.message)
     }
@@ -41,6 +43,7 @@ const Register = () => {
       try {
        await googleLogin()
        toast.success('successfully login')
+       navigate('/')
       
       } catch (error) {
         toast.error(error?.message)

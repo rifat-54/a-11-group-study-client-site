@@ -3,10 +3,13 @@ import loginlottlejson from '../assets/Animation - 1733903087166.json'
 import Lottie from 'lottie-react';
 import useAuth from '../hook/useAuth';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const {googleLogin,loginUser}=useAuth()
+    const location=useLocation()
+   
+    const navigate=useNavigate()
 
     const handleLogin=async (e)=>{
        
@@ -19,7 +22,11 @@ const Login = () => {
         try {
          await loginUser(email,password)
          toast.success('successfully login')
-        
+         if(location?.state){
+           navigate(location?.state)
+         }else{
+          navigate('/')
+         }
 
         } catch (error) {
           toast.error(error?.message)
@@ -34,7 +41,12 @@ const Login = () => {
       try {
        await googleLogin()
        toast.success('successfully login')
-       console.log('successfully login');
+       
+       if(location?.state){
+        navigate(location?.state)
+      }else{
+       navigate('/')
+      }
       } catch (error) {
         toast.error(error?.message)
       }
