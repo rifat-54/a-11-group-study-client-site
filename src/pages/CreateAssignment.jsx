@@ -3,16 +3,22 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import useAuth from "../hook/useAuth";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const {user}=useAuth();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
+    initialData.assignment_creator=user?.email
     console.log(initialData);
   };
+
+
   return (
     <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
       <h2 className="text-3xl font-bold my-20 text-center">
