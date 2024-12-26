@@ -8,12 +8,16 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Assignment from "../pages/Assignment";
 import PandingAssignment from "../pages/PandingAssignment";
+import ErrorPage from "../components/ErrorPage";
+import CreateAssignment from "../pages/CreateAssignment";
+import MyAttemptAssignment from "../pages/MyAttemptAssignment";
 
 
 const routes=createBrowserRouter([
     {
         path:'/',
         element:<MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -22,6 +26,14 @@ const routes=createBrowserRouter([
             {
                 path:'/assignment',
                 element:<Assignment></Assignment>
+            },
+            {
+                path:'/create-assignment',
+                element:<CreateAssignment></CreateAssignment>
+            },
+            {
+                path:'/my-attempt-assignment',
+                element:<MyAttemptAssignment></MyAttemptAssignment>
             },
             {
                 path:'/pending-assignment',

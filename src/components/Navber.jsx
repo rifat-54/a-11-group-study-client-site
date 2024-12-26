@@ -1,11 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hook/useAuth";
 
 const Navber = () => {
+  const {user,logoutUser}=useAuth()
+  
   return (
     <div className="navbar flex justify-between bg-[#37AFE1]">
       <div className="">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Study Group</a>
       </div>
 
       <div className="flex-none">
@@ -17,7 +20,9 @@ const Navber = () => {
             Assignment
           </NavLink>
         </div>
-        <div className="dropdown dropdown-end">
+        {
+          user?
+          <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
             role="button"
@@ -25,8 +30,9 @@ const Navber = () => {
           >
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                alt=""
+                referrerPolicy="no-referrer"
+                src={user?.photoURL}
               />
             </div>
           </div>
@@ -48,10 +54,15 @@ const Navber = () => {
               </NavLink>
             </li>
             <li>
-              <button> Logout</button>
+              <button onClick={logoutUser}> Logout</button>
             </li>
           </ul>
         </div>
+          :
+          <Link className="md:mr-3" to={'/login'} >Login</Link>
+
+        }
+        
       </div>
     </div>
   );
