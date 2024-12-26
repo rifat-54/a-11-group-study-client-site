@@ -6,31 +6,45 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../hook/useAuth";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import axios from "axios";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const {user}=useAuth();
-  const axiosSecure=useAxiosSecure()
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    initialData.assignment_creator=user?.email;
-    initialData.deadline=startDate.toLocaleString()
+    initialData.assignment_creator = user?.email;
+    initialData.deadline = startDate.toLocaleString();
     console.log(initialData);
 
     try {
-      const {data}=await axiosSecure.post('/create-assignment',initialData)
+      const { data } = await axiosSecure.post(
+        "/create-assignment",
+        initialData
+      );
 
       // const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/create-assignment`,initialData)
 
       console.log(data);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Succesfully Created Assignment!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/assignment");
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
@@ -67,7 +81,7 @@ const CreateAssignment = () => {
             <span className="label-text">Marks</span>
           </label>
           <input
-          name="marks"
+            name="marks"
             type="number"
             placeholder="marks"
             className="input input-bordered"
@@ -79,7 +93,7 @@ const CreateAssignment = () => {
             <span className="label-text">Thumbnail URL</span>
           </label>
           <input
-          name="thumbnailURL"
+            name="thumbnailURL"
             type="url"
             placeholder="thumbnail Image URL"
             className="input input-bordered"
@@ -90,10 +104,12 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Difficulty level</span>
           </label>
-          <select name="level" className="select select-bordered w-full ">
-            <option disabled selected>
-              Choose Lavel
-            </option>
+          <select
+            defaultValue={"Choose Lavel"}
+            name="level"
+            className="select select-bordered w-full "
+          >
+            <option disabled>Choose Lavel</option>
             <option>Easy</option>
             <option>Midium</option>
             <option>Hard</option>
@@ -106,7 +122,7 @@ const CreateAssignment = () => {
           </label>
 
           <DatePicker
-          name="deadline"
+            name="deadline"
             className="border w-full p-2 rounded-md"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
