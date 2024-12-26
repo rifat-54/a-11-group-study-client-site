@@ -12,6 +12,7 @@ import ErrorPage from "../components/ErrorPage";
 import CreateAssignment from "../pages/CreateAssignment";
 import MyAttemptAssignment from "../pages/MyAttemptAssignment";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdateAssignment from "../pages/UpdateAssignment";
 
 
 const routes=createBrowserRouter([
@@ -31,6 +32,10 @@ const routes=createBrowserRouter([
             {
                 path:'/create-assignment',
                 element:<PrivateRoutes><CreateAssignment></CreateAssignment></PrivateRoutes>
+            },
+            {
+                path:'/update-assignment/:id',
+                element:<PrivateRoutes><UpdateAssignment></UpdateAssignment></PrivateRoutes>
             },
             {
                 path:'/my-attempt-assignment',

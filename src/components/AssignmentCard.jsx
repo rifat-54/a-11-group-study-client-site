@@ -4,6 +4,7 @@ import useAuth from "../hook/useAuth";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AssignmentCard = ({ assignmen,fetchData }) => {
   const {
@@ -19,6 +20,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
 
   const {user}=useAuth()
   const axiosSecure=useAxiosSecure()
+  const navigate=useNavigate()
 
   const handleDelete=async()=>{
     if(assignment_creator!==user.email){
@@ -57,6 +59,15 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
      console.log(user?.email);
      console.log(assignment_creator,_id);
   }
+
+  const handleUpdate=()=>{
+    if(assignment_creator!==user.email){
+        return toast.error('Action not permitted')
+    }
+    navigate(`/update-assignment/${_id}`)
+  }
+
+
   return (
     <div className="card bg-base-100 p-2 shadow-xl">
       <div className="flex gap-3">
@@ -82,7 +93,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
         <p className="my-3"><span className="font-semibold">Deadline:</span> <span className="text-red-500">{format(new Date(deadline), "MM/dd/yyyy")}</span></p>
         <div className="card-actions mt-5 justify-between">
             <button onClick={handleDelete} className="btn bg-red-500 text-white">Delete</button>
-            <button className="btn bg-[#37AFE1]">Update</button>
+            <button onClick={handleUpdate} className="btn bg-[#37AFE1]">Update</button>
           <button className="btn btn-primary">View Assignment</button>
         </div>
       </div>
