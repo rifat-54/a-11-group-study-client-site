@@ -11,6 +11,7 @@ import PandingAssignment from "../pages/PandingAssignment";
 import ErrorPage from "../components/ErrorPage";
 import CreateAssignment from "../pages/CreateAssignment";
 import MyAttemptAssignment from "../pages/MyAttemptAssignment";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const routes=createBrowserRouter([
@@ -29,7 +30,7 @@ const routes=createBrowserRouter([
             },
             {
                 path:'/create-assignment',
-                element:<CreateAssignment></CreateAssignment>
+                element:<PrivateRoutes><CreateAssignment></CreateAssignment></PrivateRoutes>
             },
             {
                 path:'/my-attempt-assignment',

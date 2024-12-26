@@ -4,18 +4,26 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../hook/useAuth";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
   const {user}=useAuth();
+  const axiosSecure=useAxiosSecure()
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
     initialData.assignment_creator=user?.email
     console.log(initialData);
+
+    try {
+      const {data}=await axiosSecure.post('/create-assignment',initialData)
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
 
