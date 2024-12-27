@@ -29,19 +29,22 @@ const MyAttemptAssignment = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>No</th>
+              <th>Title</th>
+              <th>Marks</th>
+              <th>Obtain Marks</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody className="space-y-3">
             {application.map((item,idx) => (
               <tr key={idx}>
                 <th>{idx+1}</th>
-                <td>Brice Swyre</td>
-                <td>Tax Accountant</td>
-                <td>Red</td>
+                <td>{item?.title}</td>
+                <td>{item?.marks}</td>
+                <td>{item?.optain_mark}</td>
+                <td>{item?.status}</td>
+                
               </tr>
             ))}
           </tbody>

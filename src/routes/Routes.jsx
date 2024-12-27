@@ -15,6 +15,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import UpdateAssignment from "../pages/UpdateAssignment";
 import ViewDetails from "../pages/ViewDetails";
 import ApplyAssignment from "../pages/ApplyAssignment";
+import GiveMarks from "../pages/GiveMarks";
 
 
 const routes=createBrowserRouter([
@@ -49,11 +50,11 @@ const routes=createBrowserRouter([
             },
             {
                 path:'/my-attempt-assignment',
-                element:<MyAttemptAssignment></MyAttemptAssignment>
+                element:<PrivateRoutes><MyAttemptAssignment></MyAttemptAssignment></PrivateRoutes>
             },
             {
                 path:'/pending-assignment',
-                element:<PandingAssignment></PandingAssignment>
+                element:<PrivateRoutes><PandingAssignment></PandingAssignment></PrivateRoutes>
             },
             {
                 path:'/login',
@@ -62,7 +63,12 @@ const routes=createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/givemark/:id',
+                element:<PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>
             }
+            
         ]
     }
 ])
