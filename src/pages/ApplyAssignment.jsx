@@ -23,7 +23,7 @@ const fetchData=async()=>{
         
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         
     }
 }
@@ -67,7 +67,7 @@ useEffect(()=>{
           navigate('/my-attempt-assignment');
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 

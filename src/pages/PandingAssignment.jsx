@@ -18,7 +18,7 @@ const PandingAssignment = () => {
     fetchData();
   }, [email]);
 
-  console.log(assignmen);
+  
 
   return (
     <div>

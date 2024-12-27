@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 
 const ViewDetails = () => {
     const {id}=useParams()
-    console.log(id);
+   
     const axiosSecure=useAxiosSecure()
     const[assignment,setAssignment]=useState({})
     const [startDate, setStartDate] = useState(new Date());
@@ -27,7 +27,7 @@ const ViewDetails = () => {
             // }
             
         } catch (error) {
-            console.log(error);
+           
             
         }
     }
@@ -37,7 +37,7 @@ const ViewDetails = () => {
         
     },[id])
 
-    console.log(assignment);
+   
 
     const {
         title,

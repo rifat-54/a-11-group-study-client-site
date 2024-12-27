@@ -40,7 +40,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
 
             try {
                 const {data}=await axiosSecure.delete(`/delete-assignment/${_id}`)
-                console.log(data);
+                // console.log(data);
                 Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",
@@ -56,8 +56,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
         }
       });
 
-     console.log(user?.email);
-     console.log(assignment_creator,_id);
+    
   }
 
   const handleUpdate=()=>{

@@ -11,7 +11,7 @@ const UpdateAssignment = () => {
     const[assignment,setAssignment]=useState({})
     const [startDate, setStartDate] = useState(new Date());
 
-    console.log(id);
+    
 
     const fetchData=async()=>{
         try {
@@ -23,7 +23,7 @@ const UpdateAssignment = () => {
             }
             
         } catch (error) {
-            console.log(error);
+           
             
         }
     }
@@ -33,7 +33,6 @@ const UpdateAssignment = () => {
         
     },[id])
 
-    console.log(assignment);
 
     const {
         title,
@@ -60,7 +59,7 @@ const UpdateAssignment = () => {
       const initialData = Object.fromEntries(formData.entries());
       initialData.assignment_creator = user?.email;
       initialData.deadline = startDate.toLocaleString();
-      console.log(initialData);
+      
   
       try {
 
@@ -76,7 +75,7 @@ const UpdateAssignment = () => {
         });
         navigate("/assignment");
       } catch (error) {
-        console.log(error);
+        
       }
     };
 

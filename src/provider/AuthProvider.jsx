@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         const email={email:currentUser.email}
      
        const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,email,{withCredentials:true})
-       console.log(data);
+     
 
       }else{
        await axios.get(`${import.meta.env.VITE_API_URL}/logout`,{withCredentials:true})
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
-  console.log(user);
+ 
 
   const authInfo = {
     user,

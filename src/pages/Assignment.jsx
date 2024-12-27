@@ -7,7 +7,7 @@ const Assignment = () => {
   const [filter,setFilter]=useState('')
   const [search,setSearch]=useState('')
   const axiosSecure = useAxiosSecure();
-  console.log(filter,search);
+  
 
   const fetchData = async () => {
     try {
@@ -24,7 +24,7 @@ const Assignment = () => {
  
  
 
-  console.log(assignments);
+
 
   
 

@@ -18,7 +18,7 @@ const MyAttemptAssignment = () => {
     fetchData();
   }, [email]);
 
-  console.log(application);
+ 
   return (
     <div>
       <h2 className="text-3xl font-bold text-center my-14">

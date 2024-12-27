@@ -1,8 +1,24 @@
-# React + Vite
+server-site code Link:https://github.com/programming-hero-web-course2/b10a11-server-side-rifat-54
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+client-site code link:https://github.com/programming-hero-web-course2/b10a11-client-side-rifat-54
 
-Currently, two official plugins are available:
+live Link:https://group-study-be847.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+freatures =>
+    Easily upload and share files, documents, and links within study groups. 
+
+    Centralized storage ensures all resources are easily accessible.
+
+   Integration with Google Docs for efficient resource editing and sharing.
+   
+
+
+
+   usePakage=>
+     useing sweetalert
+     verify jwt verification
+     used axios
+     used custom hook 

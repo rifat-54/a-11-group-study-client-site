@@ -16,6 +16,7 @@ import UpdateAssignment from "../pages/UpdateAssignment";
 import ViewDetails from "../pages/ViewDetails";
 import ApplyAssignment from "../pages/ApplyAssignment";
 import GiveMarks from "../pages/GiveMarks";
+import Features from "../components/Features";
 
 
 const routes=createBrowserRouter([
@@ -68,6 +69,7 @@ const routes=createBrowserRouter([
                 path:'/givemark/:id',
                 element:<PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>
             }
+
             
         ]
     }

@@ -35,7 +35,7 @@ const GiveMarks = () => {
         navigate('/pending-assignment')
 
     } catch (error) {
-        console.log(error);
+       
         
     }
   }

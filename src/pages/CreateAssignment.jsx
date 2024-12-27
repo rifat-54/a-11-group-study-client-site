@@ -22,7 +22,7 @@ const CreateAssignment = () => {
     const initialData = Object.fromEntries(formData.entries());
     initialData.assignment_creator = user?.email;
     initialData.deadline = startDate.toLocaleString();
-    console.log(initialData);
+    
 
     try {
       const { data } = await axiosSecure.post(
@@ -32,7 +32,7 @@ const CreateAssignment = () => {
 
       // const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/create-assignment`,initialData)
 
-      console.log(data);
+      
       Swal.fire({
         position: "top-center",
         icon: "success",
@@ -42,7 +42,7 @@ const CreateAssignment = () => {
       });
       navigate("/assignment");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
