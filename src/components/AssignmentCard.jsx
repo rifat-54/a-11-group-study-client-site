@@ -4,7 +4,7 @@ import useAuth from "../hook/useAuth";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AssignmentCard = ({ assignmen,fetchData }) => {
   const {
@@ -94,7 +94,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
         <div className="card-actions mt-5 justify-between">
             <button onClick={handleDelete} className="btn bg-red-500 text-white">Delete</button>
             <button onClick={handleUpdate} className="btn bg-[#37AFE1]">Update</button>
-          <button className="btn btn-primary">View Assignment</button>
+          <Link to={`/view-details/${_id}`} className="btn btn-primary">View Assignment</Link>
         </div>
       </div>
     </div>
