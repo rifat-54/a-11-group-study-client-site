@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hook/useAuth";
+import { MdDarkMode } from "react-icons/md";
+import { CiDark } from "react-icons/ci";
 
 const Navber = () => {
   const {user,logoutUser}=useAuth()
+  const [theme, setTheme] = useState("light");
+
+  const handleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
   
   return (
     <div className="navbar flex justify-between bg-[#37AFE1]">
@@ -62,8 +71,15 @@ const Navber = () => {
           <Link className="md:mr-3" to={'/login'} >Login</Link>
 
         }
+        <div className="flex items-center ml-2">
+          {/* sun icon */}
+          <button onClick={handleTheme} className="md:text-2xl">
+            {theme === "light" ? <MdDarkMode /> : <CiDark />}
+          </button>
+        </div>
         
       </div>
+
     </div>
   );
 };
