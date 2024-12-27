@@ -15,7 +15,7 @@ const UpdateAssignment = () => {
 
     const fetchData=async()=>{
         try {
-            const {data}= await axiosSecure(`/assignment/${id}`)
+            const {data}= await axiosSecure.get(`/assignment/${id}`)
             
             setAssignment(data)
             if(deadline){

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useAuth from "../hook/useAuth";
 import useAxiosSecure from "../hook/useAxiosSecure";
@@ -11,12 +11,35 @@ const ApplyAssignment = () => {
   const owner_email=location?.state?.email;
   const axiosSecure=useAxiosSecure()
   const navigate=useNavigate()
+  const[assignment,setAssignment]=useState({})
   
+//   get data
+
+const fetchData=async()=>{
+    try {
+        const {data}= await axiosSecure.get(`/assignment/${id}`)
+        
+        setAssignment(data)
+        
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+useEffect(()=>{
+    fetchData()
+    
+},[id])
 
 
+
+
+// handle apply function
   const handleApplyAssignment=async(e)=>{
     e.preventDefault()
-    console.log('clicked');
+    
     const notes=e.target.notes.value;
     const applyData={
         assignment_id:id,
@@ -24,7 +47,11 @@ const ApplyAssignment = () => {
         applicant_name:user?.displayName,
         notes:notes,
         assignment_owner_email:owner_email,
-        status:'pending'
+        status:'pending',
+       marks:assignment?.marks,
+       level:assignment?.level,
+       title:assignment?.title,
+       optain_mark:0  
     }
     
     try {
