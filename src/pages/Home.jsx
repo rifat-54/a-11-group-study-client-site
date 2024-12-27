@@ -29,7 +29,7 @@ const Home = () => {
       <Banner></Banner>
       <Features></Features>
       <ExtraSecton></ExtraSecton>
-      <h2 className="text-3xl font-bold text-center my-16">
+      <h2 className="text-3xl font-bold text-center my-14">
        Available Assignment
       </h2>
       <div className="flex flex-col justify-center items-center">
