@@ -20,7 +20,7 @@ const MyAttemptAssignment = () => {
 
  
   return (
-    <div>
+    <div className="mt-28">
       <h2 className="text-3xl font-bold text-center my-14">
         My Attempt Assignment
       </h2>

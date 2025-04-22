@@ -22,7 +22,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  console.log(assignments);
+  
 
   return (
     <div>

@@ -7,9 +7,9 @@ const ExtraSecton = () => {
             <div>
                 <img src={logoImg} alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col  items-center justify-center'>
                 <h2 className='text-2xl font-bold text-center'>Study Together, Grow Together!</h2>
-                <p className='mt-6 text-center text-gray-600'>Empower your learning with collaborative study groups. Connect with peers, share resources, and achieve academic success together—all in one seamless platform designed to enhance group study experiences.</p>
+                <p className='mt-6 text-center  text-gray-600 '>Empower your learning with collaborative study groups. Connect with peers, share resources, and achieve academic success together—all in one seamless platform designed to enhance group study experiences.</p>
             </div>
             
         </div>

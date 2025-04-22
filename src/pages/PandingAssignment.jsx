@@ -21,7 +21,7 @@ const PandingAssignment = () => {
   
 
   return (
-    <div>
+    <div className="mt-28">
       <h2 className="text-3xl font-bold text-center my-14">
         Panding Assignment
       </h2>

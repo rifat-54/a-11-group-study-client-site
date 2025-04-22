@@ -24,8 +24,8 @@ const Assignment = () => {
   }, [filter, search]);
 
   return (
-    <div className="md:px-5  mx-auto">
-      <h2 className="text-3xl font-bold text-center my-16">
+    <div className="md:px-5 mt-28  mx-auto">
+      <h2 className="text-2xl md:ext-3xl font-bold text-center my-16">
        All Available Assignment
       </h2>
       {/* search start */}
