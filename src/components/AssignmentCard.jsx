@@ -18,6 +18,9 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
     _id
   } = assignmen;
 
+
+
+
   const {user}=useAuth()
   const axiosSecure=useAxiosSecure()
   const navigate=useNavigate()
@@ -89,7 +92,7 @@ const AssignmentCard = ({ assignmen,fetchData }) => {
 
       <div className="card-body p-2 md:p-6 lg:p-8  mt-2">
         <p className="text-gray-500">{description}</p>
-        <p className="my-3"><span className="font-semibold">Deadline:</span> <span className="text-red-500">{format(new Date(deadline), "MM/dd/yyyy")}</span></p>
+        <p className="my-3"><span className="font-semibold">Deadline:</span> <span className="text-red-500">{deadline && !isNaN(new Date(deadline)) ?format(new Date(deadline), "MM/dd/yyyy"):'no deadline'}</span></p>
         <div className="card-actions mt-5 justify-between">
             <button onClick={handleDelete} className="btn bg-red-500 text-white">Delete</button>
             <button onClick={handleUpdate} className="btn bg-[#37AFE1]">Update</button>

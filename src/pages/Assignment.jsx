@@ -17,6 +17,8 @@ const Assignment = () => {
     } catch (error) {}
   };
 
+  console.log(assignments);
+
   useEffect(() => {
     fetchData();
   }, [filter, search]);
