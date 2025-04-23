@@ -6,6 +6,7 @@ import ExtraSecton from "../components/ExtraSecton";
 import AssignmentCard from "../components/AssignmentCard";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Home = () => {
   const [assignments, setAssignments] = useState([]);
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      
       <Features></Features>
       <ExtraSecton></ExtraSecton>
       <h2 className="text-3xl font-bold text-center my-14">

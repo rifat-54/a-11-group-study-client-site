@@ -17,6 +17,7 @@ import ViewDetails from "../pages/ViewDetails";
 import ApplyAssignment from "../pages/ApplyAssignment";
 import GiveMarks from "../pages/GiveMarks";
 import Features from "../components/Features";
+import Dashboard from "../layout/Dashboard";
 
 
 const routes=createBrowserRouter([
@@ -72,6 +73,10 @@ const routes=createBrowserRouter([
 
             
         ]
+    },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>
     }
 ])
 

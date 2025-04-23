@@ -37,9 +37,9 @@ const Assignment = () => {
             onChange={(e) => setFilter(e.target.value)}
             name="category"
             id="category"
-            className="border p-4 rounded-lg"
+            className="border   p-4 rounded-lg"
           >
-            <option value="">Filter By Category</option>
+            <option value="">All Category</option>
             <option value="Easy">Easy</option>
             <option value="Midium">Midium</option>
             <option value="Hard">Hard</option>
