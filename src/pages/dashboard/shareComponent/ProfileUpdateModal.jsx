@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import useAuth from "../../../hook/useAuth";
 import Swal from "sweetalert2";
-
+import { FaBackwardStep } from "react-icons/fa6";
 const ProfileUpdateModal = ({
   handleModal,
   setProfileName,
@@ -65,13 +65,21 @@ const ProfileUpdateModal = ({
             className="border border-green-500 input w-full md:w-3/4"
           />
         </div>
+       <div className="flex gap-10 justify-center  items-center">
+        <button
+          className="text-center  btn mt-10 bg-green-500 text-white"
+          onClick={handleModal}
+        >
+        <FaBackwardStep />  Back
+        </button>
 
         <button
-          className="text-center mx-auto justify-center flex items-center btn mt-10 bg-green-500 text-white"
+          className="   btn mt-10 bg-green-500 text-white"
           onClick={handleUpdate}
         >
           Update Profile
         </button>
+        </div>
       </div>
     </div>
   );
