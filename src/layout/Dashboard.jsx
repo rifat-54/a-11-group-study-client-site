@@ -5,10 +5,13 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { MdLogout } from "react-icons/md";
 import Profile from '../pages/dashboard/Profile';
+import { MdOutlineAssignment } from "react-icons/md";
 import './dashboard.css';
+import useAuth from '../hook/useAuth';
 
 
 const Dashboard = () => {
+    const{logoutUser}=useAuth()
     const[open,setIsOpen]=useState(false)
 
     const location=useLocation();
@@ -26,8 +29,9 @@ const Dashboard = () => {
             <ul className='space-y-2'>
 
            <li> <NavLink to={'/'} className={'text-xl font-semibold flex items-center gap-3'}><IoHomeOutline className='text-2xl'/> Home</NavLink></li>
+           <li> <NavLink onClick={handleOpen} to={'/dashboard/my-assignment'} className={'text-xl font-semibold flex items-center gap-3'}><MdOutlineAssignment className='text-2xl'/> My Assignment</NavLink></li>
            <li> <NavLink onClick={handleOpen} to={'/dashboard/profile'} className={'text-xl font-semibold flex items-center gap-3'}><CgProfile className='text-2xl'/> Profile</NavLink></li>
-           <li> <NavLink to={'logout'} className={'text-xl font-semibold flex items-center gap-3'}><MdLogout className='text-2xl'/> Logout</NavLink></li>
+           <li> <button onClick={logoutUser} className={'text-xl font-semibold flex items-center gap-3'}><MdLogout className='text-2xl'/> Logout</button></li>
       
             </ul>
            </aside>

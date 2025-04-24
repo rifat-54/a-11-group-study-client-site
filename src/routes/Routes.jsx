@@ -78,7 +78,7 @@ const routes=createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children:[
             {
                 path:'/dashboard',
@@ -87,7 +87,11 @@ const routes=createBrowserRouter([
             {
                 path:'/dashboard/profile',
                 element:<Profile></Profile>
-            }
+            },
+            {
+                path:'/dashboard/my-assignment',
+                element:<MyAttemptAssignment></MyAttemptAssignment>
+            },
         ]
     }
 ])

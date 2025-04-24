@@ -85,7 +85,7 @@ const Navber = () => {
             Login
           </Link>
         )}
-        <div className="flex items-center ml-2">
+        <div className="flex items-center -mr-1 ml-2">
           {/* sun icon */}
           <button onClick={handleTheme} className="text-xl md:text-2xl">
             {theme === "light" ? <MdDarkMode /> : <CiDark className="text-white" />}

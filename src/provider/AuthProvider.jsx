@@ -35,10 +35,16 @@ const AuthProvider = ({ children }) => {
 
   const updateUser = (name, photo) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
+    try {
+       updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+      });
+      setLoading(false)
+    } catch (error) {
+      throw error;
+    }
+    
   };
 
   const logoutUser = () => {
