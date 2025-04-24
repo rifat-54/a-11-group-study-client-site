@@ -7,6 +7,10 @@ import { CiDark } from "react-icons/ci";
 const Navber = () => {
   const { user, logoutUser } = useAuth();
   const [theme, setTheme] = useState("light");
+  const [openDropdown,setOpenDropdown]=useState(false);
+  const handleDropdown=()=>{
+    setOpenDropdown(!openDropdown);
+  }
 
   const handleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -49,6 +53,7 @@ const Navber = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <div
+              onClick={handleDropdown}
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
@@ -57,21 +62,23 @@ const Navber = () => {
                 <img alt="" referrerPolicy="no-referrer" src={user?.photoURL} />
               </div>
             </div>
-            <ul
+            {
+              openDropdown && 
+              <ul
               tabIndex={0}
               className="menu   menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li className="lg:hidden">
+              <li onClick={handleDropdown} className="lg:hidden">
                 <NavLink to={"/create-assignment"}> Create Assignments</NavLink>
               </li>
-              <li className="lg:hidden">
+              <li onClick={handleDropdown} className="lg:hidden">
                 <NavLink className={"mr-4 md:mr-6 "} to={"/pending-assignment"}>
                   Pending Assignment
                 </NavLink>
               </li>
-              <li className="lg:hidden">
+              <li onClick={handleDropdown} className="lg:hidden">
                 <NavLink to={"/my-attempt-assignment"}>
-                  My Attempted Assignments
+                  My Assignments
                 </NavLink>
               </li>
               <li><Link to={'/dashboard'}>Dashboard</Link></li>
@@ -79,6 +86,7 @@ const Navber = () => {
                 <button onClick={logoutUser}> Logout</button>
               </li>
             </ul>
+            }
           </div>
         ) : (
           <Link className="md:mr-3 md:text-[17px] text-white block" to={"/login"}>
