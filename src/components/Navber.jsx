@@ -74,6 +74,7 @@ const Navber = () => {
                   My Attempted Assignments
                 </NavLink>
               </li>
+              <li><Link to={'/dashboard'}>Dashboard</Link></li>
               <li className=" font-bold">
                 <button onClick={logoutUser}> Logout</button>
               </li>

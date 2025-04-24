@@ -18,6 +18,8 @@ import ApplyAssignment from "../pages/ApplyAssignment";
 import GiveMarks from "../pages/GiveMarks";
 import Features from "../components/Features";
 import Dashboard from "../layout/Dashboard";
+import Profile from "../pages/dashboard/Profile";
+import DefaultDashboard from "../pages/dashboard/DefaultDashboard";
 
 
 const routes=createBrowserRouter([
@@ -76,7 +78,17 @@ const routes=createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<Dashboard></Dashboard>
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<DefaultDashboard></DefaultDashboard>
+            },
+            {
+                path:'/dashboard/profile',
+                element:<Profile></Profile>
+            }
+        ]
     }
 ])
 
